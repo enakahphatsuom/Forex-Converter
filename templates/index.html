@@ -9,15 +9,23 @@
 
 <body>
     <h1>Forex Converter</h1>
-    <form id="forex-converter">
+    <form id="forex-converter" method="post">
         <label for="fromCurrency">Converting from: </label><br>
         <input type="text" id="fromCurrency" name="fromCurrency" required><br>
         <label for="toCurrency">Converting to: </label><br>
         <input type="text" id="toCurrency" name="toCurrency" required><br>
         <label for="amount">Amount: </label><br>
-        <input type="text" id="amount" name="amount" required><br><br>
-        <button>convert</button>
+        <input type="number" id="amount" name="amount" required><br><br>
+        <button>Convert</button>
     </form>
+
+    {% if result is defined %}
+        <p>Converted Amount: {{ result }}</p>
+    {% endif %}
+
+    {% if error is defined %}
+        <p style="color: red;">Error: {{ error }}</p>
+    {% endif %}
 </body>
 
-</htm>
+</html>
